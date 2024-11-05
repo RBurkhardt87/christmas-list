@@ -1,68 +1,66 @@
-body {
 
-    font-size: 16px;
+body {
+    margin: 0;
+    height: 100vh; /* Full height of the viewport */
+    background-image: url('../images/xmasBackground.jpg'); /* Path to your image */
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent tiling */
 }
+
 
 header {
     background-color: #6a994e;
     color: white;
-    padding: 10px 20px;
-    height: 30px;
-    display: flex;
+    padding: 5px;
+    display : flex;
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
     border: 4px dotted red;
-
     border-radius: 10px;
-    font-family: "Bungee Tint", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 55px;
-
+    font-family: sans serif;
+    font-size: 100px;
 }
 
-footer {
-    background-color: #B80000;
-    height: 30px;
-    border: 3px dotted green;
-    padding: 20px;
-}
 
-#footerText {
+label {
     color: white;
-    text-align: center;
-    font-size:14px;
-
 }
+
+
+.form-container {
+
+    text-align: center; /* Center text and inline elements */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+}
+
 
 .directions {
-    color: green;
+    margin-top: 20px;
+    color: white;
     font-size: 30px;
     font-family: caveat, ariel;
+    text-align: center;
 }
+
 
 .outer {
     border: 8px solid #B80000; /* Outer border color and thickness */
     padding: 10px; /* Space between outer and inner borders */
     border-radius: 10px; /* Optional rounding for outer border */
 }
+
+
 .inner {
     border-color: #28A745;/* Inner border color */
     border-style: solid;
     border-width: 4px;
     padding: 20px; /* Space inside inner border */
     border-radius: 8px; /* Optional rounding for inner border */
-    background-color: #fff; /* Inner background color */
+    background-color: black; /* Inner background color */
 }
 
-.wishButton {
-    color: red;
-    background-color: red
-    border: 6px solid green;
-    font-size:20px;
-    padding: 5px;
-    item-align: center;
-}
 
 .buttonContainer {
     text-align: center; /* Center text and inline elements */
@@ -72,7 +70,7 @@ footer {
 }
 
 .songLyric {
-    color: red;
+    color: white;
     font-size: 20px;
     text-align: right;
     margin-right: 15px;
@@ -81,3 +79,7 @@ footer {
 }
 
 
+
+
+
+/*Make an ERROR class */

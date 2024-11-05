@@ -48,7 +48,7 @@ public class Wish {
 
 
     //TODO: generate getters/setters
-    //Leave out the id field because it will be set by the database
+    //Leave out the id field because it will be set by the database (but we do want a getter for it)
     public String getName() {
         return name;
     }
@@ -71,6 +71,10 @@ public class Wish {
 
     public void setStore(String store) {
         this.store = store;
+    }
+
+    public int getId() {
+        return id;
     }
 
     //TODO: Generate equals and hashcode methods:
