@@ -17,7 +17,7 @@ public class Wish {
     //TODO: declare the fields
     //We add this above the id field
 //    @Id
-//    @GeneratedValue
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private int nextId;
 

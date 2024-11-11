@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 
-<head>
-    <meta charset="UTF-8"/>
-    <title th:text="${title}"></title>
-</head>
-<header th:replace="fragments :: header"></header>
+<head th:replace="~{fragments :: head}"></head>
+<header th:replace="~{fragments :: header}"></header>
 <body>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>The Wish </th>
-                <th>Wish Description </th>
-                <th> Where to Find </th>
-            </tr>
-        </thead>
-        <tr th:each="wish : ${wishes}">
-            <td th:text="{wish.name}">Candy</td>
-            <td th:text="{wish.description}">A Gigantic Bag</td>
-            <td th:text="{wish.location}">Candy Store</td>
-        </tr>
+<div th:replace="~{fragments :: navigation}"></div>
 
+<!--<div class="tableDiv">-->
+    <th:block th:each="wish : ${wishes}">
+    <table class="table table-striped">
+        <tr>
+            <th>The Wish </th>
+            <td th:text="${wish.name}">Candy</td>
+        </tr>
+        <tr>
+            <th>Wish Description </th>
+            <td th:text="${wish.description}">A Gigantic Bag</td>
+        </tr>
+        <tr>
+            <th> Where to Find </th>
+            <td th:text="${wish.store}">Candy Store</td>
+        </tr>
     </table>
+    </th:block>
+
 </body>
 </html>

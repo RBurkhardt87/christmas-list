@@ -19,6 +19,18 @@
             </header>
         </div>
     </div>
+
+    <div th:fragment="navigation" class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <li><a th:href="@{/}" class="navbar-brand">Welcome</a></li>
+                <li><a th:href="@{/create}">Create Wish</a></li>
+                <li><a th:href="@{/wishList}">Wish List</a></li>
+            </div>
+
+        </div>
+    </div>
+
     <footer th:fragment="fragment">
         <div id="footerText">
             Ho! Ho! Ho! Merry Christmas

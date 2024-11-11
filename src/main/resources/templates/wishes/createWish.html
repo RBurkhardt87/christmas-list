@@ -13,27 +13,28 @@
             </header>
         </div>
     </div>
+    <div th:replace="~{fragments :: navigation}"></div>
     <br>
     <br>
     <div style="center"  class="form-container">
         <form method="POST" action="/create" >
             <div class="form-group">
                 <label> Name Your Wish:
-                    <input type="text" name="name" class="form-control">
+                    <input type="text" th:field="${wish.name}" class="form-control">
                 </label>
                 <!--        <p class="error" th:errors="${wish.name}"></p>-->
             </div>
             <br>
             <div class="form-group">
                 <label> Describe Your Wish:
-                    <input type="text" name="description" class="form-control">
+                    <input type="text" th:field="${wish.description}" class="form-control">
                 </label>
                 <!--        <p class="error" th:errors="${wish.description}"></p>-->
             </div>
             <br>
             <div class="form-group">
                 <label> Where to Find Your Wish:
-                    <input type="text" name="store" class="form-control" >
+                    <input type="text" th:field="${wish.store}" class="form-control" >
                 </label>
                 <!--        <p class="error" th:errors="${wish.description}"></p>-->
             </div>
