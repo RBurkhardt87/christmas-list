@@ -10,6 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Tint&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+
+
 </head>
 <body>
     <div th:fragment="header" class="outer">
@@ -19,22 +21,15 @@
             </header>
         </div>
     </div>
-
-    <div th:fragment="navigation" class="navbar navbar-inverse navbar-fixed-top">
+    <nav th:fragment="navigation" class="navbar navbar-light" style="background-color: beige;">
         <div class="container">
-            <div class="navbar-header">
-                <li><a th:href="@{/}" class="navbar-brand">Welcome</a></li>
-                <li><a th:href="@{/create}">Create Wish</a></li>
-                <li><a th:href="@{/wishList}">Wish List</a></li>
-            </div>
-
+            <li><a th:href="@{/}" >WELCOME</a></li>
+            <li><a th:href="@{/create}">CREATE WISH</a></li>
+            <li><a th:href="@{/remove}">REMOVE WISH</a></li>
+            <li><a th:href="@{/wishlist}">WISH LIST</a></li>
         </div>
-    </div>
+    </nav>
 
-    <footer th:fragment="fragment">
-        <div id="footerText">
-            Ho! Ho! Ho! Merry Christmas
-        </div>
-    </footer>
+
 </body>
 </html>

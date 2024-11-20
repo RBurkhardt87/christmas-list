@@ -2,6 +2,10 @@ package com.example.christmas_list.models;
 
 
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
@@ -9,15 +13,15 @@ import jakarta.validation.constraints.Size;
 import java.util.Objects;
 
 //TODO: Setup the class first ...
-//@Entity
+@Entity
 public class Wish {
 
 
 
     //TODO: declare the fields
     //We add this above the id field
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private int nextId;
 
@@ -33,10 +37,7 @@ public class Wish {
 
     //TODO: generate default and loaded constructor:
     //We need an empty/default constructor inside the Entity Class
-    public Wish() {
-    this.id = nextId;
-    nextId++;
-    }
+    public Wish() {}
 
     //We need a constructor that takes args for the fields
     public Wish(String name, String description, String store) {

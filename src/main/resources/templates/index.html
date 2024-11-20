@@ -2,47 +2,35 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 
 
-<head th:replace="fragments :: head"></head>
+    <head th:replace="fragments :: head"></head>
+    <body>
+        <header th:replace="~{fragments :: header}"></header>
+        <br>
+        <div th:replace="~{fragments :: navigation}"></div>
+        <div class="background">
+            <p class="directions">Are you ready to make some Christmas wishes?<br>
+                Think REAL hard about what you want for Christmas this year...<br>
+                Once you know what you want, it is time to start making wishes.<br>
+                When you are ready, click the start wishing button below<br>
+            </p>
+            <br>
+            <div class="buttonContainer">
+                <form action="/" method="post">
+                    <input type="submit" class="btn btn-success" value="Start Wishing!" />
+                </form>
+            </div>
+            <p class="songLyric">
+                "Jingle bells, jingle bells <br>
+                Jingle all the way,<br>
+                Oh what fun it is to ride<br>
+                In a one-horse open sleigh, O<br>
+                Jingle bells, jingle bells <br>
+                Jingle all the way,<br>
+                Oh what fun it is to ride<br>
+                In a one-horse open sleigh."
+            </p>
+            <br>
+        </div>
+    </body>
 
-
-<body>
-
-
-    <div th:replace="~{fragments :: header}"></div>
-    <div th:replace="~{fragments :: navigation}"></div>
-
-    <p class="directions">Are you ready to make some Christmas wishes?<br>
-        Think REAL hard about what you want for Christmas this year...<br>
-        Once you know what you want, it is time to start making wishes.<br>
-        When you are ready, click the start wishing button below<br>
-    </p>
-
-    <br>
-    <br>
-    <br>
-    <div class="buttonContainer">
-        <form action="/" method="post">
-            <input type="submit" class="btn btn-success" value="Start Wishing!" />
-        </form>
-
-
-    </div>
-
-    <p class="songLyric">
-        "Jingle bells, jingle bells <br>
-        Jingle all the way,<br>
-        Oh what fun it is to ride<br>
-        In a one-horse open sleigh, O<br>
-        Jingle bells, jingle bells <br>
-        Jingle all the way,<br>
-        Oh what fun it is to ride<br>
-        In a one-horse open sleigh."
-    </p>
-
-
-
-
-
-
-</body>
 </html>

@@ -5,6 +5,7 @@ import com.example.christmas_list.data.WishData;
 import com.example.christmas_list.data.WishRepository;
 import com.example.christmas_list.models.Wish;
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +22,7 @@ public class WishController {
     private static List<Wish> wishes = new ArrayList<>();
 
     //TODO: Create wishRepository field
+    @Autowired
     private WishRepository wishRepository;
 
     //TODO: Create a GET request handler that will display this create wish form
@@ -42,17 +44,37 @@ public class WishController {
             model.addAttribute("title", "Make a Wish");
             return "wishes/createWish";
         }
-        wishRepository.save(newWish);
+        this.wishRepository.save(newWish);
         return "redirect:/wishlist";
     }
 
     //TODO: will display the wishIndex template to user when the form redirects to /wishList
     @GetMapping("/wishlist")
-    public String displayWishIndex(Model model, Wish wish){
+    public String displayWishIndex(Model model){
         model.addAttribute("title", "Welcome to Your Wish List");
-        model.addAttribute(new Wish());
         model.addAttribute("wishes", wishRepository.findAll());
         return "wishes/wishIndex";
+    }
+
+    //TODO: Create a GET handler that will display the remove wish form
+    @GetMapping("/remove")
+    public String displayRemoveWishForm(Model model){
+        model.addAttribute("title", "Remove a Wish");
+        model.addAttribute("wishes", wishRepository.findAll());
+        return "wishes/removeWish";
+    }
+
+
+    @PostMapping("/remove")
+    public String processRemoveWishForm(@RequestParam(required = false) int[] wishIds) {
+
+        if (wishIds != null) {
+            for (int id : wishIds) {
+                wishRepository.deleteById(id);
+            }
+        }
+
+        return "redirect:/wishlist";
     }
 
 }

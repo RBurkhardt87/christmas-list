@@ -1,28 +1,35 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 
-<head th:replace="~{fragments :: head}"></head>
-<header th:replace="~{fragments :: header}"></header>
-<body>
-<div th:replace="~{fragments :: navigation}"></div>
+    <head th:replace="~{fragments :: head}"></head>
+    <body>
+        <header th:replace="~{fragments :: header}"></header>
+        <br>
+        <div th:replace="~{fragments :: navigation}"></div>
+        <div class="background">
+            <br>
+            <div>
+                <th:block th:each="wish : ${wishes}" >
+                    <div class="tableDiv">
+                        <table class="wish-listing">
+                         <tr>
+                                <th>The Wish: </th>
+                                <td th:text="${wish.name}">Candy</td>
+                            </tr>
+                            <tr>
+                                <th> Available at: </th>
+                                <td th:text="${wish.store}"> Candy Store </td>
+                            </tr>
+                            <tr>
+                                <th>Wish Description: </th>
+                                <td  th:text="${wish.description}">A Gigantic Bag</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <br>
+                </th:block>
+            </div>
+        </div>
+    </body>
 
-<!--<div class="tableDiv">-->
-    <th:block th:each="wish : ${wishes}">
-    <table class="table table-striped">
-        <tr>
-            <th>The Wish </th>
-            <td th:text="${wish.name}">Candy</td>
-        </tr>
-        <tr>
-            <th>Wish Description </th>
-            <td th:text="${wish.description}">A Gigantic Bag</td>
-        </tr>
-        <tr>
-            <th> Where to Find </th>
-            <td th:text="${wish.store}">Candy Store</td>
-        </tr>
-    </table>
-    </th:block>
-
-</body>
 </html>
