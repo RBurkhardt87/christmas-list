@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
+
+<head th:replace="fragments :: head"></head>
+
+
+<body>
+<header th:replace="~{fragments :: header}"></header>
+<br>
+<div th:replace="~{fragments :: navigation}"></div>
+<div class="background">
+    <br>
+    <div style="center"  class="form-container">
+<!--        th:action="@{/events/edit}" -->
+        <form method="POST" th:action="@{'/edit/' + ${wishId}}" >
+            <div class="form-group">
+                <label> Edit Wish Name:
+                    <input type="text" th:field="${wish.name}" class="form-control">
+                </label>
+                <p class="error" th:errors="${wish.name}"></p>
+            </div>
+            <br>
+            <div class="form-group">
+                <label> Edit Store to Shop:
+                    <input type="text" th:field="${wish.store}" class="form-control" >
+                </label>
+                <p class="error" th:errors="${wish.store}"></p>
+            </div>
+            <br>
+            <div class="form-group">
+                <label> Edit Wish Description:
+                    <textarea th:field="${wish.description}" class="form-control"></textarea>
+                </label>
+                <p class="error" th:errors="${wish.description}"></p>
+            </div>
+            <br>
+            <div class="form-group">
+                <input type="submit"  value="Make a Wish!" class="btn btn-success" >
+            </div>
+        </form>
+    </div>
+    <p class="songLyric">
+        "Jingle bells, jingle bells <br>
+        Jingle all the way,<br>
+        Oh what fun it is to ride<br>
+        In a one-horse open sleigh, O<br>
+        Jingle bells, jingle bells <br>
+        Jingle all the way,<br>
+        Oh what fun it is to ride<br>
+        In a one-horse open sleigh."
+    </p>
+    <br>
+</div>
+</body>
+
+</html>

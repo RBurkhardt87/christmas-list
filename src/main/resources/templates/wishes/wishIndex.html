@@ -24,6 +24,9 @@
                                 <th>Wish Description: </th>
                                 <td  th:text="${wish.description}">A Gigantic Bag</td>
                             </tr>
+                            <td>
+                                <a th:href="@{/edit/{id}(id=${wish.id})}">EDIT WISH</a>
+                            </td>
                         </table>
                     </div>
                     <br>

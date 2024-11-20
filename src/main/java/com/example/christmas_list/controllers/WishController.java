@@ -13,13 +13,12 @@ import org.springframework.validation.Errors;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 //@RequestMapping("wish")
 public class WishController {
 
-    //TODO: Create an ArrayList that will hold he wish objects
-    private static List<Wish> wishes = new ArrayList<>();
 
     //TODO: Create wishRepository field
     @Autowired
@@ -64,7 +63,7 @@ public class WishController {
         return "wishes/removeWish";
     }
 
-
+    //TODO: Create a POST handler that will process the remove wish form
     @PostMapping("/remove")
     public String processRemoveWishForm(@RequestParam(required = false) int[] wishIds) {
 
@@ -76,6 +75,51 @@ public class WishController {
 
         return "redirect:/wishlist";
     }
+
+
+    //TODO: Create a GET handler that will display the edit wish form
+    @GetMapping("/edit/{wishId}")
+    public String displayEditWishForm(Model model, Wish wish, @PathVariable Integer wishId){
+
+        Optional<Wish> result = wishRepository.findById(wishId);
+        if (result.isPresent()) {
+            Wish wishToEdit = result.get();
+            model.addAttribute("wish", wishToEdit);
+            String title = "Edit Wish " + wishToEdit.getName() + " (id=" + wishToEdit.getId() + ")";
+            model.addAttribute("title", title );
+
+        }
+        return "wishes/editWish";
+    }
+
+
+    //* It is NOT setting the new values for the name, store or description.
+    //TODO: Create a POST handler that will process the edit wish form
+    @PostMapping("/edit/{wishId}")
+    public String processEditWishForm(@ModelAttribute @Valid Wish wish,
+                                      Errors errors, Model model, @PathVariable Integer wishId, String name, String store, String description) {
+
+        if(errors.hasErrors()){
+            model.addAttribute("error", "Must not be blank");
+            return "wishes/editWish";
+        }
+
+        if (wishId != null) {
+            Optional<Wish> result = wishRepository.findById(wishId);
+            if (result.isPresent()) {
+                Wish wishToEdit = result.get();
+                wishToEdit.setName(name);
+                wishToEdit.setStore(store);
+                wishToEdit.setDescription(description);
+                wishRepository.save(wishToEdit);
+            }
+            }
+
+            return "redirect:/wishlist";
+        }
+
+//----------------------------------------------------------------------------------------
+
 
 }
 
