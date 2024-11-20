@@ -1,7 +1,7 @@
 package com.example.christmas_list.controllers;
 
 
-import com.example.christmas_list.data.WishData;
+
 import com.example.christmas_list.data.WishRepository;
 import com.example.christmas_list.models.Wish;
 import jakarta.validation.Valid;
@@ -10,13 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.validation.Errors;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 @Controller
-//@RequestMapping("wish")
 public class WishController {
 
 
@@ -93,7 +89,6 @@ public class WishController {
     }
 
 
-    //* It is NOT setting the new values for the name, store or description.
     //TODO: Create a POST handler that will process the edit wish form
     @PostMapping("/edit/{wishId}")
     public String processEditWishForm(@ModelAttribute @Valid Wish wish,
@@ -118,7 +113,7 @@ public class WishController {
             return "redirect:/wishlist";
         }
 
-//----------------------------------------------------------------------------------------
+
 
 
 }

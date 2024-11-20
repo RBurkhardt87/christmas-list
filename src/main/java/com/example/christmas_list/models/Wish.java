@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
@@ -25,12 +26,15 @@ public class Wish {
     private int id;
     private int nextId;
 
+    @NotBlank
     @NotNull(message = "You must call out your Wish!")
     private String name;
 
+    @NotBlank
     @Size(max = 500, message = "Wow! That's a loooong description of your Wish. Wanna shorten it for me?!!!")
     private String description;
 
+    @NotBlank
     @Size(max = 200, message = "The store/site you entered is too long!")
     private String store;
 

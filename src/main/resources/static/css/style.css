@@ -29,7 +29,13 @@ label {
 
 
 a:hover {color: red;}
+
+
 a { color: green;}
+
+.error {
+    color:red;
+}
 
 
 .background {
