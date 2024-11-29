@@ -26,15 +26,15 @@ public class Wish {
     private int id;
     private int nextId;
 
-    @NotBlank
-    @NotNull(message = "You must call out your Wish!")
+    @NotBlank(message = "You must call out your Wish!")
+    @NotNull
     private String name;
 
-    @NotBlank
+    @NotBlank(message = "You must enter a short description of your wish")
     @Size(max = 500, message = "Wow! That's a loooong description of your Wish. Wanna shorten it for me?!!!")
     private String description;
 
-    @NotBlank
+    @NotBlank(message = "You must enter a store to checkout")
     @Size(max = 200, message = "The store/site you entered is too long!")
     private String store;
 

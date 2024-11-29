@@ -9,14 +9,17 @@
         <div th:replace="~{fragments :: navigation}"></div>
         <div class="background">
             <br>
-            <div style="center"  class="form-container">
+            <br>
+            <div style="center"  class="tableDiv">
                 <form method="post">
                     <th:block th:each="wish : ${wishes}">
                         <div class="form-group">
-                            <label>
-                                <span th:text="${wish.name}"></span>
-                                <input type="checkbox" name="wishIds" th:value="${wish.id}" class="form-control">
-                            </label>
+
+                                <input type="checkbox"
+                                       th:name="wishIds"
+                                       th:value="${wish.id}"
+                                       th:text="${wish.name}">
+
                         </div>
                     </th:block>
                     <input type="submit" value="Delete" class="btn btn-danger">
@@ -25,3 +28,4 @@
         </div>
     </body>
 </html>
+
